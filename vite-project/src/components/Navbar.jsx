@@ -7,7 +7,7 @@ import ProductsContext from "../contexts/ProductsContext";
 function Navbar() {
 
   const [search, setSearch] = useState("")
-  const {setProducts} = useContext(ProductsContext)
+  const {setProducts ,cart} = useContext(ProductsContext)
 
 
   const searchProduct = async () => {
@@ -31,7 +31,7 @@ function Navbar() {
         <div>
             <ul className="flex gap-8 ml-3 font-bold text-xl ">
                 <Link to="/" className=" hover:text-blue-900 transition-all hover:scale-110">Home</Link>
-                <Link to="/Cart" className=" hover:text-blue-900 transition-all hover:scale-110">Cart</Link>
+                <Link to="/Cart" className=" hover:text-blue-900 transition-all hover:scale-110">Cart {!cart.length ? "" : `(${cart.length})` }</Link>
             </ul>
         </div>
 

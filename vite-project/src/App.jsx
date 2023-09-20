@@ -11,9 +11,26 @@ import Cart from "./pages/Cart"
 
 function App() {
   const [products, setProducts] = useState([]);
+
+  const [cart, setCart] = useState("")
+
+  const AddtoCart = (product)=>{
+      setCart([...cart,product])
+     
+
+  }
+
+  const RemovefromCart =(product)=>{
+    const newCart = cart.filter((item)=> item.id !== product.id)
+    setCart(newCart)
+
+
+
+  }
+
   return (
     <>
-<ProductsContext.Provider value={{products,setProducts}}>
+<ProductsContext.Provider value={{products,setProducts ,AddtoCart ,cart, setCart ,RemovefromCart}}>
 <BrowserRouter>
 <Navbar setProducts = { setProducts}/>
   <Routes>
